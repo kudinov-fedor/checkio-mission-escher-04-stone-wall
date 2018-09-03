@@ -1,0 +1,68 @@
+
+<body data-author="likewind">
+<div class="question-answer">
+    <div class="question">
+        I don’t know how to start solving. 
+    </div>
+    <div class="answer">
+        You can rotate an array 90 degrees in a clockwise direction and analyze each string by the number of '#' in it. The index of the string with the minimum number of '#' will be the answer.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        How do I rotate an array 90 degrees?
+    </div>
+    <div class="answer">
+        Try using the following code:
+        <pre class="brush: python">
+wall = wall.split('\n')
+
+while '' in wall:
+    wall.remove('')
+
+rot_wall = ['' for i in range(len(wall[0]))]
+
+for i in range(len(wall)):
+    for j in range(len(wall[0])):
+        rot_wall[j] += wall[i][j]
+        </pre>
+Also, as an alternative, you can translate the input multiline string into a two-dimensional array, and then use the <a href='https://docs.scipy.org/doc/numpy/reference/generated/numpy.rot90.html'>numpy library</a> to rotate 90 degrees.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        How do I find a string with a minimum number of '#'? 
+    </div>
+    <div class="answer">
+        In this case you should use the <a href='https://docs.python.org/3/library/functions.html#min'>min() function</a>, in combination with the <a href='https://docs.python.org/3/library/stdtypes.html#str.count'>count() method</a>, which allows you to find the number of a certain character/substring in a string.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        I need help writing it in Python.
+    </div>
+    <div class="answer">
+        The following code will return the string with the minimum number of '#':
+        <pre class="brush: python">
+answer = min(rot_wall, key=lambda x:x.count('#'))        
+</pre>
+        After that, you just need to find the index of this string in the rot_wall list. 
+    </div>
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        How do I find the index of a string in the list?
+    </div>
+    <div class="answer">
+        You can use the index() method described in the documentation for the <a href='https://docs.python.org/3/tutorial/datastructures.html'>list</a> data structure.
+    </div>
+</div>
+
+</body>
+
+

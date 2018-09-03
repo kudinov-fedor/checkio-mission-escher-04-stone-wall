@@ -2,70 +2,64 @@
 <body data-author="likewind">
 <div class="question-answer">
     <div class="question">
-        Мне нужна помощь, чтобы начать.
+        Я не знаю, как приступить к решению.
     </div>
     <div class="answer">
-        Для начала вы можете убрать лишние элементы (0) и оставить непосредственно элементы здания, разделив их построчно. В этом вам помогут такие методы для работы со строками, как <a href='https://docs.python.org/3.6/library/stdtypes.html#str.replace'>replace()</a> и <a href='https://docs.python.org/3.6/library/stdtypes.html#str.split'>split()</a>.
+        Вы можете повернуть массив на 90 градусов по часовой стрелке и проанализировать каждую строку на количество '#' в ней. Индекс строки с минимальным количеством '#' и будет ответом.
     </div>
 </div>
 
 <div class="question-answer">
     <div class="question">
-        Как мне это описать с помощью Python?
+        Как мне повернуть массив на 90 градусов?
     </div>
     <div class="answer">
-        Код будет выглядеть следующим образом:
+        Попробуйте использовать следующий код:
         <pre class="brush: python">
-plan = plan.replace('0', '')
-plan = plan.split('\n')
+wall = wall.split('\n')
+
+while '' in wall:
+    wall.remove('')
+
+rot_wall = ['' for i in range(len(wall[0]))]
+
+for i in range(len(wall)):
+    for j in range(len(wall[0])):
+        rot_wall[j] += wall[i][j]
         </pre>
-Первая строка заменяет все '0' на пустую строку (''), вторая - разделяет многострочную строку на отдельные строки, используя в качестве разделительного элемента символ переноса строк - '\n'.
+Также, в качестве альтернативного варианта, вы можете перевести исходную многострочную строку в двумерный массив, а затем использовать <a href='https://docs.scipy.org/doc/numpy/reference/generated/numpy.rot90.html'>библиотеку numpy</a> для поворота на 90 градусов.
     </div>
 </div>
 
 <div class="question-answer">
     <div class="question">
-        Как мне посчитать площадь, необходимую для строительства дома?
+        Как мне определить строку с минимальным количеством '#'?
     </div>
     <div class="answer">
-        Чтобы определить площадь необходимого прямоугольного участка земли, вам нужно умножить самый длинный элемент списка plan (фактически - длину дома) на количество таких элементов в списке (фактически - ширину дома). Чтобы определить самый длинный элемент - используйте <a href='https://docs.python.org/3/library/functions.html#max'>функцию max()</a>, а для определения длины списка - <a href='https://docs.python.org/3/library/functions.html#len'>функцию len()</a>.
+        В данной ситуации вам стоит использовать <a href='https://docs.python.org/3/library/functions.html#min'>функцию min()</a>, в сочетании с <a href='https://docs.python.org/3/library/stdtypes.html#str.count'>методом count()</a>, который позволяет узнать количество определенного символа/подстроки в строке.
     </div>
 </div>
 
 <div class="question-answer">
     <div class="question">
-        Я бы хотел увидеть, как это будет написано на Python.
+        Мне нужна помощь с реализацией этого на Python.
     </div>
     <div class="answer">
-        Учитывая предыдущую часть решения, это будет выглядеть так:
+        Данный код вернет строку с наименьшим количеством '#':
         <pre class="brush: python">
-plan = plan.replace('0','')
-plan = plan.split('\n')
-answer = len(max(plan)) * len(plan)        
+answer = min(rot_wall, key=lambda x:x.count('#'))        
 </pre>
+        После чего вам останется лишь найти индекс этой строки в списке rot_wall.
     </div>
     </div>
 </div>
 
 <div class="question-answer">
     <div class="question">
-        В некоторых планах есть строки, где вообще ничего не построено (''). Как мне избавиться от них, чтобы len(plan) возвращал правильное значение?
+        Как мне найти индекс строки в списке?
     </div>
     <div class="answer">
-        В данной ситуации вы можете воспользоваться <a href='https://docs.python.org/3.6/library/stdtypes.html#str.replace'>методом replace()</a>, который удаляет из списка выбранный элемент.
-    </div>
-</div>
-
-<div class="question-answer">
-    <div class="question">
-        Я не совсем понимаю, как использовать это в нашем случае.
-    </div>
-    <div class="answer">
-        Вы можете использовать цикл while, чтобы удалять пустые элементы до тех пор, пока их там совсем не останется. Например:
-        <pre class="brush: python">
-while '' in plan:
-    plan.remove('')        
-</pre>
+        Вы можете использовать метод index(), описанный в документации по такой структуре данных, как <a href='https://docs.python.org/3/tutorial/datastructures.html'>list</a>.
     </div>
 </div>
 
