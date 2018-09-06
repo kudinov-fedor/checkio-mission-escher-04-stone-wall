@@ -16,4 +16,17 @@ if __name__ == '__main__':
 ####0##0##
 00##0###00
 ''') == 4
+
+    assert stone_wall('''
+#00#######
+#######0##
+00######00
+''') == 1
+
+    assert stone_wall('''
+#####
+#####
+#####
+''') == 0
+
     print("Coding complete? Click 'Check' to earn cool rewards!")
