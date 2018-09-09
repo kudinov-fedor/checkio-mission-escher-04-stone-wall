@@ -1,0 +1,85 @@
+<!-- Describe task in general -->
+
+<img class="for_info_only half" src="{{MEDIA}}stone_wall.jpg" style="float:left;max-height: 400px">
+
+<div class="story for_info_only">
+地図とコンパスはすぐ見つかりました。
+その上、あなたは望遠鏡で見渡した際に
+自分が打ち上げられた浜辺から数キロのところに小さなヨットを見つけました。
+これはきっと島から脱出に失敗したトレジャーハンターのものだと思われます。
+良く調べた結果このヨットは良好な状態を保っており追い風があれば脱出に用いるのに問題なさそうでした。
+いづれにせよ、あなたの問題が一つ解決たのです。
+あとはキューブを見つけなくてはなりません。<br>
+<br>
+以前お話したように
+昔ここに住んでいたエッシャー卿はとても孤独を愛していました。
+彼の屋敷が非常に高くて厚い石壁に囲まれていたとしても驚くには値しません。
+幸運にもあなたはこのことを予見していくらの爆発物を入手していました。
+(私はあなたの出自を知りたいとさえ思いません)
+しかしそれは何処でも吹き飛ばせるほどの充分な量はありません。
+もっとも脆弱な個所を見つけて用いるのが良さそうです。
+</div>
+
+<p>
+入力は '0' と '#' からなる複数行の文字列です。
+これは壁を上から俯瞰した図で '#' は壁、 '0' は空間を表します。
+以下はあなたと壁の位置関係です。
+あなたは壁の下側にいます。<br>
+あなたの仕事は
+石壁の最も脆弱な列の番号を見つけることです。
+(以下の例を見て下さい)
+複数行の文字列で最も長い行が壁の幅となります。
+もし解答が複数だった場合は一番左側の列番号を返してください。
+番号は 0 から始まります。
+</p>
+
+<div style="text-align: center">
+    <img src="{{MEDIA}}wall.jpg" style="max-height: 350px">
+</div>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>入力: </strong> 石壁を表した複数行の文字列
+</p>
+
+<p>
+    <strong>出力: </strong> 最も弱い列の番号
+</p>
+
+
+<!-- Put some usage examples -->
+<div class="for_info_only">
+<p>
+<strong>Example:</strong>
+</p>
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">
+stoneWall(`
+##########
+####0##0##
+00##0###00
+`) == 4
+</pre>
+{% else %}
+<pre class="brush: python">
+stone_wall('''
+##########
+####0##0##
+00##0###00
+''') == 4
+</pre>
+{% endif %}
+</div>
+
+<!-- Here you can explain how it can be used in development and what is usage of this. -->
+<!-- The section is optional -->
+<p class="for_info_only">
+    <strong>どのように使われるか: </strong>
+建築物の分析
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p><strong>事前条件</strong>:<br>
+    3x3 <= array size <= 10x10
+</p>
