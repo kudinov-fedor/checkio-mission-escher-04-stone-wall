@@ -1,0 +1,66 @@
+
+<body data-author="likewind">
+<div class="question-answer">
+    <div class="question">
+        Я не знаю, з чого почати.
+    </div>
+    <div class="answer">
+    Ви можете повернути масив на 90 градусів по годинниковій стрілці та проаналізувати скільки разів зустрічається символ '#' у кожному рядку. Індекс рядка з мінімальною кількістю '#' і буде відповіддю.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Як мені повернути масив на 90 градусів?
+    </div>
+    <div class="answer">
+        Спробуйте використати наступний код:
+        <pre class="brush: python">
+wall = wall.split('\n')
+
+while '' in wall:
+    wall.remove('')
+
+rot_wall = ['' for i in range(len(wall[0]))]
+
+for i in range(len(wall)):
+    for j in range(len(wall[0])):
+        rot_wall[j] += wall[i][j]
+        </pre>
+        Також, як альтернативний варіант, ви можете перевести початковий багаторядковий рядок у двовимірний масив, а потім використати <a href='https://docs.scipy.org/doc/numpy/reference/generated/numpy.rot90.html'>бібліотеку numpy</a> для повороту на 90 градусів.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Як мені визначити рядок з мінімальною кількістю '#'?
+    </div>
+    <div class="answer">
+        В цьому випадку вам потрібно використати <a href='https://docs.python.org/3/library/functions.html#min'>функцію min()</a>, у поєднанні з <a href='https://docs.python.org/3/library/stdtypes.html#str.count'>методом count()</a>, який дозволить дізнатись кількість входжень певного символу/підрядку у рядку.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Мені потрібна допомога з реалізацією цього на Python.
+    </div>
+    <div class="answer">
+        Результатом наведеного коду буде рядок з найменьшою кількістю '#':
+        <pre class="brush: python">
+answer = min(rot_wall, key=lambda x:x.count('#'))        
+</pre>
+        Після чого вам залишиться лише знайти індекс цього рядку у списку rot_wall.
+    </div>
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Як мені знайти індекс рядку у списку?
+    </div>
+    <div class="answer">
+        Ви можете використати метод index(), наведений у документації до такої структури даних, як <a href='https://docs.python.org/3/tutorial/datastructures.html'>list</a>.
+    </div>
+</div>
+
+</body>
